@@ -9,30 +9,31 @@ const SankeyDiagram = () => {
 
     const Data = {
         nodes: [
-            { id: "bob" },
-            { id: "alice" },
-            { id: "carol" },
-            { id: "mel" },
-            { id: "yan"}
+            { id: "source" },
+            { id: "label 1" },
+            { id: "label 2" },
+            { id: "label 3" },
+            { id: "label 4" },
+            { id: "label 5" }
         ],
         links: [
-            { source: "bob", target: "carol", value: 4 },
-            { source: "alice", target: "carol", value: 3 },
-            { source: "alice", target: "yan", value: 1 },
-            { source: "carol", target: "mel", value: 6 },
-            { source: "carol", target: "yan", value: 1 },
+            { source: "source", target: "label 1", value: 4 },
+            { source: "source", target: "label 2", value: 4 },
+            { source: "source", target: "label 3", value: 4 },
+            { source: "source", target: "label 4", value: 4 },
+            { source: "source", target: "label 5", value: 4 },
         ]
     }
 
     const SankeyProps = {
-        width: 500,
+        width: 750,
         height: 500,
         data: Data
     }
 
     const sankeyGenerator = sankey()
-        .nodeWidth(26)
-        .nodePadding(29)
+        .nodeWidth(18)
+        .nodePadding(30)
         .extent([
             [MARGIN_X, MARGIN_Y],
             [SankeyProps.width - MARGIN_X, SankeyProps.height - MARGIN_Y],
@@ -50,8 +51,7 @@ const SankeyDiagram = () => {
                     width={sankeyGenerator.nodeWidth()}
                     x={node.x0}
                     y={node.y0}
-                    stroke={"black"}
-                    fill="#a53253"
+                    fill="#a9f5b9"
                     fillOpacity={0.8}
                     rx={0.9} 
                 />
@@ -62,12 +62,11 @@ const SankeyDiagram = () => {
     const allLinks = links.map((link, i) => {
         const linkGenerator = sankeyLinkHorizontal();
         const path = linkGenerator(link);
-        
         return (
             <path
               key={i}
               d={path}
-              stroke="#a53253"
+              stroke="#33de59"
               fill="none"
               strokeOpacity={0.1}
               strokeWidth={link.width}
