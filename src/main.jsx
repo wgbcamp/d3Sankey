@@ -7,7 +7,7 @@ import XyPlot from './xyPlot.jsx';
 createRoot(document.getElementById('root')).render(
     <div>
       <SankeyDiagram />
-      <ChordDiagram />
-      <XyPlot />
+      {/* <ChordDiagram />
+      <XyPlot /> */}
     </div>  
 )
